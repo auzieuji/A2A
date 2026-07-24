@@ -10,13 +10,30 @@ Aplikasi client-server untuk pencarian audio Al-Qur'an. Repository ini terdiri d
 
 Backend dibangun menggunakan Python. Pastikan komputer kamu sudah terinstal **Python** sebelum memulai.
 
+### Setup Virtual Environment (Wajib)
+Gunakan virtual environment agar instalasi *library* aman dan terisolasi khusus untuk project ini. Buka terminal/Command Prompt, arahkan ke folder `Backend`, lalu jalankan perintah berikut:
+
+1. Buat virtual environment bernama `venv`:
+   ```bash
+   python -m venv venv
+   ```
+
+2. Aktifkan virtual environment:
+   * Pengguna **Windows**:
+     ```bash
+     venv\Scripts\activate
+     ```
+   * Pengguna **Mac/Linux**:
+     ```bash
+     source venv/bin/activate
+     ```
+
 ### Prasyarat Instalasi
-Buka terminal/Command Prompt, arahkan ke folder `Backend`, lalu instal semua *library* atau *dependencies* yang dibutuhkan dengan menjalankan perintah berikut:
+Setelah virtual environment aktif (biasanya ditandai dengan tulisan `(venv)` di awal baris terminal), instal semua *library* atau *dependencies* yang dibutuhkan dengan menjalankan perintah berikut:
 
 ```bash
-pip install fastapi uvicorn python-multipart joblib numpy torch torchaudio scikit-learn transformers
+pip install fastapi uvicorn python-multipart torch torchaudio scikit-learn transformers joblib numpy
 ```
-*(Ganti `main:app` sesuai dengan nama file python utama kamu jika berbeda).*
 
 ---
 
