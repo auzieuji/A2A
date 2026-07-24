@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- HEADER SPACE -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+
+        <!-- APP TITLE -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A2A"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Deteksi ayat Al-Quran dari audio"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+
+        <!-- HERO CARD -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mulai Pencarian"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#111111"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Pilih file audio atau rekam audio untuk melakukan pencarian ayat Al-Quran"
+                    android:textSize="15sp"
+                    android:textColor="#777777"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/uploadButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Unggah File Audio"
+                        android:textSize="17sp"
+                        android:textAllCaps="false"
+                        android:padding="14dp"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#00695C"
+                        app:cornerRadius="18dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/recordButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Mulai Merekam"
+                        android:textSize="17sp"
+                        android:textAllCaps="false"
+                        android:padding="14dp"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#029482"
+                        app:cornerRadius="18dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recordingCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FFF5F5"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_horizontal">
+
+                <!-- TITIK MERAH -->
+
+                <View
+                    android:id="@+id/recordingDot"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="#FF3B30"/>
+
+                <!-- LABEL -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Sedang merekam..."
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#111111"/>
+
+                <!-- TIMER -->
+
+                <TextView
+                    android:id="@+id/recordingTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="00:00"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="#D32F2F"/>
+
+                <!-- WAVEFORM PALSU -->
+
+                <ProgressBar
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:indeterminate="true"/>
+
+                <!-- HINT -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Bacakan ayat Al-Quran dengan jelas"
+                    android:textSize="15sp"
+                    android:textColor="#666666"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- LOADING -->
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+        <!-- RESULT CARD -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:visibility="gone"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- LABEL -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hasil Prediksi"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#00695C"/>
+
+                <!-- SURAH -->
+
+                <TextView
+                    android:id="@+id/surahText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="QS 1:1"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="#111111"/>
+
+                <!-- ARABIC -->
+
+                <TextView
+                    android:id="@+id/arabicText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+                    android:textSize="24sp"
+                    android:gravity="end"
+                    android:textDirection="rtl"
+                    android:lineSpacingExtra="12dp"
+                    android:textColor="#111111"/>
+
+                <!-- TRANSLATION -->
+
+                <TextView
+                    android:id="@+id/translationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Dengan nama Allah Yang Maha Pengasih, Maha Penyayang."
+                    android:textSize="17sp"
+                    android:lineSpacingExtra="7dp"
+                    android:textColor="#444444"/>
+
+                <!-- MULTI MATCH -->
+
+                <TextView
+                    android:id="@+id/multiMatchText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:padding="16dp"
+                    android:background="#F2F4F7"
+                    android:text="Lafadz ayat ini juga ditemukan pada:"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:visibility="gone"/>
+
+                <!-- SCORE -->
+
+                <TextView
+                    android:id="@+id/scoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Similarity Score: 0.98"
+                    android:textStyle="bold"
+                    android:textColor="#00897B"/>
+
+                <!-- SIMILAR VERSES -->
+
+                <TextView
+                    android:id="@+id/similarSummaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="#444444"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/similarDetailText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="10dp"
+                    android:textColor="#222222"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
