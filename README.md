@@ -41,14 +41,14 @@ pip install fastapi uvicorn python-multipart torch torchaudio scikit-learn trans
 
 Aplikasi Android ini dibangun menggunakan Android Studio. Ada beberapa konfigurasi jaringan yang **wajib** disesuaikan agar aplikasi bisa terhubung dengan Backend.
 
-### ⚠️ Konfigurasi IP Address (PENTING)
+### Konfigurasi IP Address
 Agar aplikasi Android bisa mengirim data ke komputer (Backend), **keduanya harus terhubung ke jaringan WiFi/LAN yang sama**. 
 
 Kamu perlu mengubah alamat IP di dalam *source code* Android Studio agar sesuai dengan alamat IP lokal komputermu (IPv4):
 
 1. Buka folder/direktori berikut di Android Studio: 
    `QuranAudioSearch\app\src\main\java\com\example\quranaudiosearch\network`
-2. Cari file konfigurasi API atau *Base URL* (misalnya `RetrofitClient` atau `ApiConfig`).
+2. Cari file konfigurasi API atau *Base URL* (pada `RetrofitClient`).
 3. Ubah *Base URL* menggunakan IP komputermu. Contoh: `http://192.168.x.x:8000/`.
 
 ### Langkah-langkah Build (How to Build)
@@ -63,4 +63,4 @@ Kamu perlu mengubah alamat IP di dalam *source code* Android Studio agar sesuai 
 
 ## Tech Stack
 * **Backend**: Python, FastAPI, PyTorch, Transformers, Scikit-learn
-* **Frontend**: Android (Java/Kotlin)
+* **Frontend**: Android (Kotlin)
